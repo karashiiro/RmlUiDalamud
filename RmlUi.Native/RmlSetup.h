@@ -13,4 +13,9 @@ inline DllExport void RmlShutdown()
 {
     Rml::Shutdown();
 }
+
+inline DllExport void RmlSetSystemInterface(Rml::SystemInterface* instance)
+{
+    SetSystemInterface(instance);
+}
 }

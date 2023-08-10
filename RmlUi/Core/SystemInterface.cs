@@ -47,6 +47,8 @@ public abstract partial class SystemInterface : IDisposable
         ReleaseUnmanagedResources();
     }
 
+    public static explicit operator nint(SystemInterface self) => self._ptr;
+
     private delegate double ManagedGetElapsedTime();
 
     private delegate int ManagedTranslateString([MarshalAs(UnmanagedType.LPStr)] out string translated,
