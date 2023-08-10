@@ -8,5 +8,5 @@ public enum LogType : int
     Warning,
     Info,
     Debug,
-    Max
+    Max,
 }
