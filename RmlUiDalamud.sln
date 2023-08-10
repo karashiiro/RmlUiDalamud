@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RmlUi", "RmlUi\RmlUi.csproj", "{E5D47CF7-219E-4051-8DED-DA8338BC8A65}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RmlUi.Native", "RmlUi.Native\RmlUi.Native.vcxproj", "{51027F9C-51D7-47EA-BF6E-D514F0919134}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5D47CF7-219E-4051-8DED-DA8338BC8A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D47CF7-219E-4051-8DED-DA8338BC8A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D47CF7-219E-4051-8DED-DA8338BC8A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D47CF7-219E-4051-8DED-DA8338BC8A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51027F9C-51D7-47EA-BF6E-D514F0919134}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{51027F9C-51D7-47EA-BF6E-D514F0919134}.Debug|Any CPU.Build.0 = Debug|x64
+		{51027F9C-51D7-47EA-BF6E-D514F0919134}.Release|Any CPU.ActiveCfg = Release|x64
+		{51027F9C-51D7-47EA-BF6E-D514F0919134}.Release|Any CPU.Build.0 = Release|x64
+	EndGlobalSection
+EndGlobal
