@@ -155,11 +155,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="RenderInterfaceShim.cpp" />
     <ClCompile Include="RmlSetup.cpp" />
     <ClCompile Include="SystemInterfaceShim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DllUtils.h" />
+    <ClInclude Include="RenderInterfaceShim.h" />
     <ClInclude Include="RmlSetup.h" />
     <ClInclude Include="SystemInterfaceShim.h" />
   </ItemGroup>
