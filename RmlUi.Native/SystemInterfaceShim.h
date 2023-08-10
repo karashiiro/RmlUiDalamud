@@ -13,7 +13,7 @@ typedef void (*ManagedGetClipboardText)(char* text);
 typedef void (*ManagedActivateKeyboard)(float caret_position_x, float caret_position_y, float line_height);
 typedef void (*ManagedDeactivateKeyboard)();
 
-class SystemInterfaceShim : public Rml::SystemInterface
+class SystemInterfaceShim final : public Rml::SystemInterface
 {
 public:
     SystemInterfaceShim(const ManagedGetElapsedTime get_elapsed_time, const ManagedTranslateString translate_string,
@@ -41,14 +41,23 @@ public:
 
     int TranslateString(Rml::String& translated, const Rml::String& input) override
     {
-        // TODO: out std::string?
-        return translate_string(nullptr, input.c_str());
+        char* translated_raw = nullptr;
+
+        const auto count = translate_string(translated_raw, input.c_str());
+
+        // Copy the raw null-terminated string into a newly-allocated string container
+        translated = std::string(translated_raw);
+        return count;
     }
 
     void JoinPath(Rml::String& translated_path, const Rml::String& document_path, const Rml::String& path) override
     {
-        // TODO: out std::string?
-        join_path(nullptr, document_path.c_str(), path.c_str());
+        char* translated_path_raw = nullptr;
+
+        join_path(translated_path_raw, document_path.c_str(), path.c_str());
+
+        // Copy the raw null-terminated string into a newly-allocated string container
+        translated_path = std::string(translated_path_raw);
     }
 
     bool LogMessage(const Rml::Log::Type type, const Rml::String& message) override
@@ -63,8 +72,12 @@ public:
 
     void GetClipboardText(Rml::String& text) override
     {
-        // TODO: out std::string?
-        get_clipboard_text(nullptr);
+        char* text_raw = nullptr;
+
+        get_clipboard_text(text_raw);
+
+        // Copy the raw null-terminated string into a newly-allocated string container
+        text = std::string(text_raw);
     }
 
     void ActivateKeyboard(const Rml::Vector2f caret_position, const float line_height) override
