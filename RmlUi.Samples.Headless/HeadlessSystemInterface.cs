@@ -1,4 +1,5 @@
-﻿using RmlUi.Core;
+﻿using System.Diagnostics;
+using RmlUi.Core;
 
 namespace RmlUi.Samples.Headless;
 
@@ -6,7 +7,8 @@ public class HeadlessSystemInterface : SystemInterface
 {
     public override double GetElapsedTime()
     {
-        throw new NotImplementedException();
+        var elapsed = DateTime.UtcNow - Process.GetCurrentProcess().StartTime.ToUniversalTime();
+        return elapsed.TotalSeconds;
     }
 
     public override int TranslateString(out string translated, in string input)
@@ -21,7 +23,8 @@ public class HeadlessSystemInterface : SystemInterface
 
     public override bool LogMessage(LogType type, in string message)
     {
-        throw new NotImplementedException();
+        Console.Write($"[{type}] {message}");
+        return true;
     }
 
     public override void SetMouseCursor(in string cursorName)
