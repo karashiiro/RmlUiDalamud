@@ -8,5 +8,11 @@
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
+    <Target Name="CopyNativeLibraries" AfterTargets="Build">
+        <ItemGroup>
+            <NativeDeps Include="..\x64\$(Configuration)\**\*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(NativeDeps)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+    </Target>
 
 </Project>
